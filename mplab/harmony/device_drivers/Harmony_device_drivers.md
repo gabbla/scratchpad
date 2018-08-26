@@ -12,4 +12,27 @@ The functions that the system use to interface the driver are the following:
 - `DRV_<module>_Deinitialize`
 - `DRV_<module>_Status`
 
+### Module initialization
 
+A possible implementation of a module initialization is the following: 
+```C
+SYS_MODULE_OBJ DRV_Sample_Initialize(
+		const SYS_MODULE_INDEX index,
+		const SYS_MODULE_INIT *init){
+	SAMPLE_MODULE_DATA *pObj = (SAMPLE_MODULE_DATA)&gObj[index];
+	SAMPLE_MODULE_INIT_DATA *pInit = (SAMPLE_MODULE_INIT_DATA)init;
+	
+	// Initialize module object
+	pObj->state = SAMPLE_STATE_INITIALIZE; // State for the client
+	pObj->status = SYS_STATUS_BUSY; // State for the system
+	pObj->dataNewIsValid = false;
+	pObj->dataProcessedIsValid = false; 
+
+	if(pInit != null){
+		pObj->dataNew = pInit->dataSome;
+		pObj->dataNewIsValid = true;
+	}
+	
+	return (SYS_MODULE_OBJ)pObj;
+}
+```
