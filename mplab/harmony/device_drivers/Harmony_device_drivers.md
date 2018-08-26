@@ -6,10 +6,10 @@ The note in this file are based on the complete document that can be found [here
 
 Every driver has 2 interfaces, one to the system and one to the user (via a Client interface).
 The functions that the system use to interface the driver are the following:
-- DRV_<module>_Initialize
-- DRV_<module>_Tasks
-- DRV_<module>_Reinitialize
-- DRV_<module>_Deinitialize
-- DRV_<module>_Status
+- `DRV_<module>_Initialize`
+- `DRV_<module>_Tasks`
+- `DRV_<module>_Reinitialize`
+- `DRV_<module>_Deinitialize`
+- `DRV_<module>_Status`
 
 
