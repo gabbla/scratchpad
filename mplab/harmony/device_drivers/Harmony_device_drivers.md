@@ -36,3 +36,7 @@ SYS_MODULE_OBJ DRV_Sample_Initialize(
 	return (SYS_MODULE_OBJ)pObj;
 }
 ```
+
+### Module Status
+
+The module `DRV_<module>_Status` function **must** return a value of `SYS_STATUS`, however, it is possible to extend the information by implementing a _detailed_ get status function.
